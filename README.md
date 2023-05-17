@@ -86,11 +86,11 @@ O banco de dados está vazio, então iniciamos inserindo alguns dados na tabela 
   
 '''
 
-Após a mensagem de sucesso, podemos inserir o comando insert para verificar nossa tabela
+Após a mensagem de sucesso, podemos inserir o comando SELECT para verificar nossa tabela
 
 '''
 
-    INSERT
+    SELECT
       *
      FROM
       Produtos
