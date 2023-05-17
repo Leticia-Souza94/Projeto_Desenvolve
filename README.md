@@ -122,7 +122,7 @@ Podemos inserir o comando print(pyodbc.drivers()) para verificar os Drivers. Se 
 ![Captura de tela 2023-05-17 144148](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/2265faa8-4bdb-435d-844a-e19f9d1e10d2)
 
 
-Precisamos agora criar a conexão do SQL com o Python e para isso precisamos inserir o Driver (estamos utilizando o SQLServer), o servidor (Nome do servidor. Você pode digitar "Hostname" CMD do seu computador para confirma) e o nome do Banco de Dados que estamos utilizando.
+Precisamos agora criar a conexão do SQL com o Python e para isso precisamos inserir o Driver (estamos utilizando o SQLServer), o servidor (Nome do servidor. Você pode digitar "Hostname" no CMD do seu computador para confirmar) e o nome do Banco de Dados que estamos utilizando.
 
 Precisamos tambem da variável "conexao" para criar nossa conexão com o Banco de Dados, utilizando os dados que inserimos. Podemos inserir um print para recebermos um retorno quando tudo estiver ok com nossa conexão.
 
@@ -155,7 +155,7 @@ criamos tambem um cursor que vai permitir a utilização dos comandos SQL
 
 
 
-Vamos testar agora nossa conexão inserindo mais dados à nossa tabela Produtos, mas dessa vez diretamente do Python. Vamos criar a cariável comando e inserir o comando que utilizamos anteriormente, mudando apenas os dados do produto.
+Vamos testar agora nossa conexão inserindo mais dados à nossa tabela Produtos, mas dessa vez diretamente do Python. Vamos criar a variável comando e inserir o comando que utilizamos anteriormente, mudando apenas os dados do produto.
 
 ![Captura de tela 2023-05-17 145439](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/c7a3421e-fffd-4e75-b286-96b1069e9f0e)
 
@@ -165,7 +165,7 @@ Vamos testar agora nossa conexão inserindo mais dados à nossa tabela Produtos,
 Após inserir o comando, colocamos tambem cursor.execute(comando) para executar o comando e cursor.commit() para garantir que foi executado e atualizado efetivando a transação.
 
 
-Podemos tambem criar variáveis para que nosso insert fique mais fácil de ser preenchido.
+Podemos tambem criar variáveis para que nosso insert fique mais fácil de ser preenchido. Nesse caso utilizamos o format() para inserirmos as variáveis dentro da string.
 
 '''
 
@@ -213,7 +213,7 @@ Inseri tambem dados em nossa tabela de Vendas, apenas 5 vendas para não deixar 
 ![Captura de tela 2023-05-17 154154](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/c3a841a8-f3b3-416d-bd79-a6b5c9909915)
 <br>
 
-Para conseguirmos importar nossos dados e plotar nossos gráficos, precisamos de alguma bibliotecas. Como já vimos precisamos da pyodbc, mas tambem precisamos instalar e importar as bibliotecas pandas e matplotlib.
+Para conseguirmos importar nossos dados e plotar nossos gráficos, precisamos de algumas bibliotecas. Como já vimos precisamos da pyodbc, mas tambem precisamos instalar e importar as bibliotecas pandas e matplotlib.
 
 '''
 
@@ -223,7 +223,7 @@ Para conseguirmos importar nossos dados e plotar nossos gráficos, precisamos de
 
 '''
 
-Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nesse caso vou ler as colunas de nome_produto e qtd_estoque da tabela Produtos. Feito isso, criamos uma variável "dados" para inserir a função read da biblioteca Pandas, onde vamos linkar nosso comando à nossa conexao.
+Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nesse caso vou ler as colunas de nome_produto e qtd_estoque da tabela Produtos. Feito isso, criamos uma variável "dados" para inserir a função .read da biblioteca Pandas, onde vamos linkar nosso comando à nossa conexao.
 
 '''
 
@@ -260,7 +260,7 @@ O próximo passo é agrupar nossa tabela por nome_produto e inserir a função S
 
 '''
 
-Esse comando irá organizar nossa tabela por Nome e mostrará quantos itens temos te acordo com cada nome
+Esse comando irá organizar nossa tabela por Nome e mostrará quantos itens temos de acordo com cada nome de produto
 
 ![Captura de tela 2023-05-17 162209](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/0acea461-f6c4-4d1b-9f34-878e766e3ec1)
 
