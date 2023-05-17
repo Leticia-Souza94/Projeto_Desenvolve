@@ -22,7 +22,8 @@ O funcionário que acompanha o Ecommerce ficará responsável pelo banco de dado
 1) Criar um Banco de Dados chamado "PythonSQL" utilizando SQLServer para uma empresa fictícia chamada "Teclalol"
 2) Criar conexão entre o SQLServer e o Python utilizando o Jupyter notebook
 3) inserir dados no Banco de Dados através do Jupyter notebook
-4) Plotar um gráfico de Barras 
+4) Ler tabelas do SQL no Jupyter
+5) Plotar um gráfico de Barras 
 <br>
 <br>
 
@@ -201,7 +202,59 @@ Podemos tambem criar variáveis para que nosso insert fique mais fácil de ser p
 <br>
 <br>
 
-4) Plotar um gráfico de Barras 
+4) Ler tabelas do SQL no Jupyter
+
+Inseri alguns dados a mais em nossa tabela de Produtos. Ao todo são 35 produtos cadastrados em nossa base:
+
+![Captura de tela 2023-05-17 152025](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/a351ee9c-6870-4fc2-b69c-cc30c0d7e4fd)
+
+Inseri tambem dados em nossa tabela de Vendas, apenas 5 vendas para não deixar nossa tabela vazia:
+
+![Captura de tela 2023-05-17 154154](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/c3a841a8-f3b3-416d-bd79-a6b5c9909915)
+<br>
+
+Para conseguirmos importar nossos dados e plotar nossos gráficos, precisamos de alguma bibliotecas. Como já vimos precisamos da pyodbc, mas tambem precisamos instalar e importar as bibliotecas pandas e matplotlib.
+
+'''
+
+    import pyodbc
+    import pandas as pd
+    import matplotlib
+
+'''
+
+Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nesse caso vou ler as colunas de cor e preco_unitario da tabela Produtos. Feito isso, criamos uma variável "dados" para inserir a função read da biblioteca Pandas, onde vamos linkar nosso comando à nossa conexao.
+
+'''
+
+    dados_conexao = (
+            "Driver={SQL Server};"
+            "Server=Le_Souza;"
+            "Database=PythonSQL;"
+    )
+
+    conexao = pyodbc.connect(dados_conexao)
+    print("Conexão bem sucedida!")
+
+
+    comando_sql = "SELECT cor, preco_unitario FROM Produtos"
+
+    dados = pd.read_sql(comando_sql, conexao)
+
+'''
+
+Pode aparecer uma mensagem de alerta, mas podemos prosseguir com o comando display(dados) que conseguiremos visualizar nossa tabela.
+
+![Captura de tela 2023-05-17 160145](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/a02749de-b92f-4f25-bbb1-9d92b79dc6ca)
+
+<br>
+<br>
+<br>
+5) Plotar um gráfico de Barras 
+
+
+
+
 
 
 
