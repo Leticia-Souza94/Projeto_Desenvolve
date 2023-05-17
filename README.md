@@ -223,7 +223,7 @@ Para conseguirmos importar nossos dados e plotar nossos gráficos, precisamos de
 
 '''
 
-Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nesse caso vou ler as colunas de cor e preco_unitario da tabela Produtos. Feito isso, criamos uma variável "dados" para inserir a função read da biblioteca Pandas, onde vamos linkar nosso comando à nossa conexao.
+Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nesse caso vou ler as colunas de nome_produto e qtd_estoque da tabela Produtos. Feito isso, criamos uma variável "dados" para inserir a função read da biblioteca Pandas, onde vamos linkar nosso comando à nossa conexao.
 
 '''
 
@@ -237,7 +237,7 @@ Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nes
     print("Conexão bem sucedida!")
 
 
-    comando_sql = "SELECT cor, preco_unitario FROM Produtos"
+    comando_sql = "SELECT nome_produto, qtd_estoque FROM Produtos"
 
     dados = pd.read_sql(comando_sql, conexao)
 
@@ -245,18 +245,43 @@ Com as bibliotecas importadas nós podemos então inserir nosso comando SQL. Nes
 
 Pode aparecer uma mensagem de alerta, mas podemos prosseguir com o comando display(dados) que conseguiremos visualizar nossa tabela.
 
-![Captura de tela 2023-05-17 160145](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/a02749de-b92f-4f25-bbb1-9d92b79dc6ca)
+![Captura de tela 2023-05-17 162015](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/81f18084-ebfe-4bbc-8430-949bf88e7a8d)
 
 <br>
 <br>
 <br>
 5) Plotar um gráfico de Barras 
 
+O próximo passo é agrupar nossa tabela por nome_produto e inserir a função SUM (soma)
+
+'''
+
+    dados.groupby('nome_produto').sum()
+
+'''
+
+Esse comando irá organizar nossa tabela por Nome e mostrará quantos itens temos te acordo com cada nome
+
+![Captura de tela 2023-05-17 162209](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/0acea461-f6c4-4d1b-9f34-878e766e3ec1)
+
+Essa função deverá ser guardada em uma variável e depois podemos chamar nossa tabela utilizando o comando display
+
+![Captura de tela 2023-05-17 162544](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/ca678efc-e237-4a12-af0b-6a4240cb765f)
+
+Por fim, utilizamos a função plot para gerar nosso gráfico de barras:
+
+'''
+
+    Produtos_por_Nome.plot(kind='bar')
+
+'''
+
+![Captura de tela 2023-05-17 162740](https://github.com/Leticia-Souza94/Projeto_Desenvolve/assets/112443902/55a6c748-e6bf-40d4-9d83-f883f629d2fc)
 
 
+## Conclusão
 
-
-
+Podemos observar visualmente a quantidade de produtos que temos divididos por nome, sem levar em conta as suas categorias como "cor" ou "descrição". Foi um aprendizado rico e com certeza com mais tempo e conhecimento, poderá ser melhorado.
 
 
 
